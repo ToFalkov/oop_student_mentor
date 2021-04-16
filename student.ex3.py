@@ -35,10 +35,10 @@ class Student:
              print('Недостаточно данных')
         #self.means = means
 
-        def __gt__(self, other):
-            if not isinstance(other, Lecterer):
-                print('Такого студента не существует.')
-            return self.means > other.means
+    def __gt__(self, other):
+        if not isinstance(other, Student):
+            print('Такого студента не существует.')
+        return self.means > other.means
 
 class Mentor:
     def __init__(self, name, surname):
@@ -55,10 +55,6 @@ class Lecturer(Mentor):
         self.courses_in_progress = []
         self.grades = {}
         self.means = 0
-    def __str__(self,name):
-        print(f'Имя{name}')
-        print(f'Фамилия {surname}')
-        print(self.grades.mean())
     def __str__(self):
         try:
             for key, values in self.grades.items():
